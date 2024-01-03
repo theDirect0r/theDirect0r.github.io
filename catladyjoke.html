@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Lover's Den</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eaeff5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 1em;
+            width: 100%;
+            text-align: center;
+        }
+
+        .section-container {
+            width: 45%;
+            padding: 2em;
+            margin: 2em 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            position: relative;
+        }
+
+        h1, h2, h3 {
+            color: #3498db;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .joke-container {
+            order: 2;
+        }
+
+        .puns-container {
+            order: 1;
+        }
+
+        .youtube-container {
+            order: 3;
+            width: 100%;
+        }
+
+        .cat-images {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .footer {
+            background-color: #3498db;
+            color: #fff;
+            padding: 1em;
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Cat Lover's Den</h1>
+    </header>
+
+    <section class="puns-container section-container">
+        <h2>Puns Section</h2>
+        <!-- Puns content goes here -->
+        <div class="cat-images">
+            <!-- Cat images go here -->
+        </div>
+    </section>
+
+    <section class="joke-container section-container">
+        <h2>Mom Jokes Section</h2>
+        <!-- Mom Jokes content goes here -->
+        <div class="cat-images">
+            <!-- Cat images go here -->
+        </div>
+    </section>
+
+    <section class="youtube-container section-container">
+        <h2>Cat Videos</h2>
+        <div id="player"></div>
+        <div class="cat-images">
+            <!-- Cat images go here -->
+        </div>
+    </section>
+
+    <script>
+        // Load the YouTube API script asynchronously
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        let player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '315',
+                width: '560',
+                videoId: 'VIDEO_ID', // Replace with your cat video ID
+                playerVars: {
+                    'autoplay': 1,
+                    'controls': 0,
+                    'showinfo': 0,
+                    'rel': 0
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            // You can do something when the player is ready
+        }
+
+        function onPlayerStateChange(event) {
+            // You can do something when the player state changes
+        }
+    </script>
+
+    <div class="footer">
+        <p>© 2024 Cat Lover's Den | Purr-fectly delightful content for cat enthusiasts!</p>
+    </div>
+
+</body>
+
+</html>
